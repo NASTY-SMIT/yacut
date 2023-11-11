@@ -8,7 +8,7 @@ from .constants import OBLIGATORY_FIELD, CUSTOM_ID, ORIGINAL_LONG_LINK, SUBMIT_A
 class URLMapForm(FlaskForm):
     original_link = URLField(
         ORIGINAL_LONG_LINK,
-        validators=[DataRequired(message=OBLIGATORY_FIELD),]
+        validators=[DataRequired(message=OBLIGATORY_FIELD), ]
     )
     custom_id = URLField(
         CUSTOM_ID,
