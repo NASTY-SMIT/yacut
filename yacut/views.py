@@ -1,18 +1,19 @@
 import random
 import string
 
-from flask import abort, flash, redirect, render_template
+from flask import flash, redirect, render_template
 
 from . import app, db
-from .constants import LINK_DUPLICATE
+from .constants import LINK_DUPLICATE, LENGTH_RANDOM_SHORT_ID
 from .forms import URLMapForm
 from .models import URLMap
 
 
 def get_unique_short_id():
     characters = string.ascii_letters + string.digits
-    random_string = ''.join(random.choices(characters, k=6))
-    return random_string
+    return (''.join(random.choices(
+        characters,
+        k=LENGTH_RANDOM_SHORT_ID)))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -32,8 +33,6 @@ def index_view():
 
 @app.route('/<string:shortid>')
 def redirect_shortid(shortid):
-    short_name = URLMap.query.filter_by(short=shortid).first()
-    if short_name:
-        return redirect(short_name.original)
-    else:
-        abort(404)
+    return redirect(
+        URLMap.query.filter_by(
+            short=shortid).first_or_404().original)

@@ -53,5 +53,33 @@ pip install -r requirements.txt
 ```
 flask run
 ```
-❤️Автор [Nasty Shmidt](https://github.com/NASTY-SMIT)❤️
+## Примеры запросов к API
+```
+POST http://127.0.0.1:5000/api/id/
+```
+Запрос:
+```
+{
+  "url": "string",
+  "custom_id": "string"
+}
+```
+Ответ:
+```
+{
+  "url": "string",
+  "short_link": "string"
+}
+```
+```
+GET http://127.0.0.1:5000/api/id/{short_id}
+```
+Ответ:
+```
+{
+  "url": "string"
+}
+```
+❤️ Автор [Nasty Shmidt](https://github.com/NASTY-SMIT) ❤️ 
+
 [Telegram](https://t.me/nastyShmidt)

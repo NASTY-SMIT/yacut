@@ -8,3 +8,7 @@ OBLIGATORY_FIELD = 'Обязательное поле'
 CUSTOM_ID = 'Добавьте свой вариант укороченной ссылки'
 ORIGINAL_LONG_LINK = 'Введите оригинальную длинную ссылку'
 SUBMIT_ADD = 'Добавить'
+MIN_LENGTH_SHORT_ID = 1
+MAX_LENGTH_SHORT_ID = 16
+
+LENGTH_RANDOM_SHORT_ID = 6
